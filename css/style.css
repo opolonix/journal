@@ -107,6 +107,7 @@ footer{
     left: 0;
     width: 100%;
     z-index: 3;
+    transition-duration: .8s;
 }
 /* .slide_container .cover{
     position: fixed;
@@ -138,8 +139,18 @@ footer{
     margin: 15px;
     text-align: center;
 }
+.component > .text{
+    font-size: 14px;
+    padding: 0 20px;
+    font-weight: 500;
+    margin: 15px 15px 25px;
+    line-height: 20px;
+}
 .important::after{
     content: "*";
     color: #0099ff;
     margin-left: 3px;
+}
+.slide_container.close{
+    transform: translateY(100%);
 }
