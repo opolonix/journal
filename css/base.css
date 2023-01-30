@@ -9,6 +9,7 @@ body, html{
     font-weight: 500;
     -webkit-tap-highlight-color: #ffffff00;
     -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
 }
 br, object{
     -webkit-touch-callout: none;
