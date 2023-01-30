@@ -1,0 +1,99 @@
+.cards_container > .card{
+    width: 225px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+}
+body{
+    background-color: #333;
+}
+.headers > .name{
+    font-size: 28px;
+    font-weight: 700;
+    margin: 20px 0 0;
+    color: #333;
+}
+.headers > .card_date{
+    margin: 5px 0 8px;
+    font-weight: 600;
+    color: #464646;
+    font-size: 12px;
+    text-align: center;
+}
+.subject > .name{
+    font-size: 18px;
+    font-weight: 700;
+    grid-area: 1 / 1 / 2 / 3;
+}
+.subject > p{
+    margin: 0;
+}
+.subject{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 20px);
+    gap: 7px;
+    margin-top: 15px;
+}
+.homework_btn, .break{
+    background-color: #e3e3e3;
+    text-align: center;
+    padding: 2px;
+    border-radius: 10px;
+    color: #525252;
+    width: fit-content;
+    padding: 2px 15px 3px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 15px auto 0;
+}
+.subject > .fromto, .subject > .adress{
+    font-size: 14px;
+}
+footer{
+    height: 100px;
+}
+.navigation_bar{
+    width: 100%;
+    height: 100px;
+}
+.btns{
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.btns button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    margin: auto;
+    background-color: #52525200;
+}
+.btns button.active{
+    background-color: #ffffff;
+    transform: translateY(-5px);
+}
+.weak_color{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+}
+.weak_color.red{
+    background-color: #ff7878;
+}
+.weak_color.blue{
+    background-color: #0099ff;
+}
