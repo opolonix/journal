@@ -30,3 +30,13 @@ function close_homework(){
     homework_win.classList.add("close")
     un.setGlobal("open_homework_win", false)
 }
+
+var lastY = 1;
+document.addEventListener("touchmove", function (event) {
+    var lastS = document.documentElement.scrollTop;
+    if(lastS == 0 && (lastY-event.touches[0].clientY)<0 && event.cancelable){
+        event.preventDefault(); 
+        event.stopPropagation();
+    }
+    lastY = event.touches[0].clientY;
+},{passive: false});
