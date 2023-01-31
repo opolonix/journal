@@ -119,10 +119,10 @@ footer{
     background-color: #3333337e;
 } */
 .slide_container .components{
-    min-height: 300px;
     border-radius: 20px 20px 0 0;
     background-color: #fff;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 .slide_container .top_line{
     width: 60px;
