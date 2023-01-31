@@ -72,8 +72,8 @@ footer{
     width: 100%;
     position: absolute;
     bottom: 20px;
-    grid-template-columns: repeat(2, 1fr);
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 .btns button{
     width: 50px;
