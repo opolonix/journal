@@ -73,7 +73,7 @@ footer{
     position: absolute;
     bottom: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 .btns button{
     width: 50px;
@@ -110,14 +110,6 @@ footer{
     z-index: 3;
     transition-duration: .8s;
 }
-/* .slide_container .cover{
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    background-color: #3333337e;
-} */
 .slide_container .components{
     border-radius: 20px 20px 0 0;
     background-color: #fff;

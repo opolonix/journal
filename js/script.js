@@ -32,13 +32,10 @@ function close_homework(){
 }
 
 var lastY = 1;
-document.addEventListener("touchmove", function (event) {
-    var lastS = document.documentElement.scrollTop;
-    if(lastS == 0 && (lastY-event.touches[0].clientY)<0 && event.cancelable){
-        event.preventDefault(); 
-        event.stopPropagation();
-    }
-    lastY = event.touches[0].clientY;
-},
-{passive: false}
+document.addEventListener("touchmove", function (event) 
+    {
+        if((lastY-event.touches[0].clientY) < 0 && event.cancelable){event.preventDefault(); event.stopPropagation();};
+        lastY = event.touches[0].clientY;
+    },
+    {passive: false}
 );
