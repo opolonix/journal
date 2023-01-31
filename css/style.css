@@ -13,7 +13,7 @@
 }
 body{
     background-color: #333;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 .cards_container{
     z-index: 1;
