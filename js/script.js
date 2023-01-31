@@ -39,4 +39,6 @@ document.addEventListener("touchmove", function (event) {
         event.stopPropagation();
     }
     lastY = event.touches[0].clientY;
-},{passive: false});
+},
+{passive: false}
+);
