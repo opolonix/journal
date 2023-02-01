@@ -16,7 +16,11 @@ var homework_win = document.querySelector(".slide_container")
 
 
 document.addEventListener("click", (event)=>{
-    if (un.Global("open_homework_win") == false){open_homework()}
+    if (un.Global("open_homework_win") == false){
+        if(event.target.offsetParent.classList.value == 'card main'){
+            open_homework()
+        }
+    }
     else{close_homework()}
 })
 
