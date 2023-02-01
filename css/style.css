@@ -1,4 +1,4 @@
-.btns button{
+.btns button, .weak_color{
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -84,16 +84,19 @@ footer{
 }
 .btns button{
     width: 50px;
+    position: absolute;
+    z-index: 5;
     height: 50px;
     border-radius: 50%;
     border: none;
-    margin: auto;
+    left: 50%;
+    bottom: 20px;
     display: flex;
-    background-color: #ffffff;
-    transform: translateY(-10px);
+    transform: translateX(-50%);
     align-items: center;
     justify-content: center;
     font-size: 22px;
+    background-color: #ffffff;
     color: #242424;
     font-weight: 700;
 }
@@ -157,3 +160,30 @@ footer{
 .slide_container.close{
     transform: translateY(100%);
 }
+.change_date{
+    position: absolute;
+    left: 50%;
+    bottom: 64px;
+}
+.change_date .circle{
+    background-color: #ffffff;
+    border: 2px dashed #979797;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    position: absolute;
+    transform: translateX(50%);
+}
+/* .change_date .circle.day{
+    height: 200px;
+    z-index: 2;
+}
+.change_date .circle.mounth{
+    height: 150px;
+    z-index: 3;
+}
+.change_date .circle.year{
+    height: 100px;
+    z-index: 4;
+} */
