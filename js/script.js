@@ -1,23 +1,23 @@
 class Unit{
     constructor(){
-        this.__global_var = {}
+        this._global_var = {}
     }
     Global(name){
-        return this.__global_var[name]
+        return this._global_var[name]
     }
     setGlobal(name, data){
-        this.__global_var[name] = data
+        this._global_var[name] = data
     }
+    setTimeTable(file){querytimeTable(file)}
 }
-file = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 
-console.log(file);
 un = new Unit();
 
-un.setGlobal("open_homework_win", false)
+const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
+response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
+
+
 var homework_win = document.querySelector(".slide_container")
-
-
 document.addEventListener("click", (event)=>{
     if (un.Global("open_homework_win") == false){
         card = document.querySelector(".card.main")
@@ -29,20 +29,16 @@ document.addEventListener("click", (event)=>{
 })
 document.querySelector('.navigation_bar .btns button').addEventListener("click", (event)=>{
     if (un.Global("open_homework_win") == false){
-        console.log(event);
+        
     }
 })
 
+function open_homework(){homework_win.classList.remove("close"); un.setGlobal("open_homework_win", true)}
+function close_homework(){homework_win.classList.add("close"); un.setGlobal("open_homework_win", false)}
 
-function open_homework(){
-    homework_win.classList.remove("close")
-    un.setGlobal("open_homework_win", true)
+function querytimeTable(data){
+    console.log(data);
 }
-function close_homework(){
-    homework_win.classList.add("close")
-    un.setGlobal("open_homework_win", false)
-}
-
 // var lastY = 1;
 // document.addEventListener("touchmove", function (event) 
 //     {
