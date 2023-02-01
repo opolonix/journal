@@ -35,7 +35,7 @@ body{
     font-size: 18px;
     font-weight: 700;
     grid-area: 1 / 1 / 2 / 3;
-    color: #292929;
+    color: #292929; 
 }
 .subject > p{
     margin: 0;
@@ -86,8 +86,8 @@ footer{
     align-items: center;
     justify-content: center;
     font-size: 22px;
-    font-weight: 800;
     color: #242424;
+    font-weight: 800;
 }
 .weak_color{
     position: absolute;
