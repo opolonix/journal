@@ -20,7 +20,7 @@ br, object{
     user-select: none; 
 }
 *::selection{
-    background: #006eff;
+    background: #7a7a7a50;
     color: #ffffff;
 }
 a{
