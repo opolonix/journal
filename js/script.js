@@ -16,7 +16,7 @@ const getPageHtml = async (url) => {
       console.log(e);
   }
 };
-console.log(getPageHtml());
+console.log(getPageHtml('sourses/timeTable.txt'));
 un = new Unit();
 
 un.setGlobal("open_homework_win", false)
