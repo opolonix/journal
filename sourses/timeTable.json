@@ -1,5 +1,38 @@
 [
     {
-        "name": "пятница"
+        "name": "Понедельник",
+        "day_num": 0,
+        "table": [
+            {
+                "name": "Классный час",
+                "weak_color" : "br",
+                "time": "9:00 - 9:45",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Русский",
+                "weak_color" : "br",
+                "time": "9:50 - 11:10",
+                "cabinet": "к1 12"
+            },
+            {
+                "name": "Астрономия",
+                "weak_color" : "br",
+                "time": "11:20 - 12:40",
+                "cabinet": "к1 28"
+            },
+            {
+                "name": "Информатика",
+                "weak_color" : "br",
+                "time": "13:10 - 14:30",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Физкультура",
+                "weak_color" : "br",
+                "time": "14:40 - 16:00",
+                "cabinet": "к2"
+            }
+        ]
     }
 ]
