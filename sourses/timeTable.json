@@ -22,6 +22,9 @@
                 "cabinet": "к1 28"
             },
             {
+                "type": "repose"
+            },
+            {
                 "name": "Информатика",
                 "weak_color" : "br",
                 "time": "13:10 - 14:30",
@@ -32,6 +35,182 @@
                 "weak_color" : "br",
                 "time": "14:40 - 16:00",
                 "cabinet": "к2"
+            }
+        ]
+    },
+    {
+        "name": "Вторник",
+        "day_num": 1,
+        "table": [
+            {
+                "name": "Классный час",
+                "weak_color" : "br",
+                "time": "9:00 - 9:45",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Русский",
+                "weak_color" : "br",
+                "time": "9:50 - 11:10",
+                "cabinet": "к1 12"
+            },
+            {
+                "name": "Астрономия",
+                "weak_color" : "br",
+                "time": "11:20 - 12:40",
+                "cabinet": "к1 28"
+            },
+            {
+                "type": "repose"
+            },
+            {
+                "name": "Информатика",
+                "weak_color" : "br",
+                "time": "13:10 - 14:30",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Физкультура",
+                "weak_color" : "br",
+                "time": "14:40 - 16:00",
+                "cabinet": "к2"
+            }
+        ]
+    },
+    {
+        "name": "Среда",
+        "day_num": 2,
+        "table": [
+            {
+                "name": "Классный час",
+                "weak_color" : "br",
+                "time": "9:00 - 9:45",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Русский",
+                "weak_color" : "br",
+                "time": "9:50 - 11:10",
+                "cabinet": "к1 12"
+            },
+            {
+                "name": "Астрономия",
+                "weak_color" : "br",
+                "time": "11:20 - 12:40",
+                "cabinet": "к1 28"
+            },
+            {
+                "type": "repose"
+            },
+            {
+                "name": "Информатика",
+                "weak_color" : "br",
+                "time": "13:10 - 14:30",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Физкультура",
+                "weak_color" : "br",
+                "time": "14:40 - 16:00",
+                "cabinet": "к2"
+            }
+        ]
+    },
+    {
+        "name": "Четверг",
+        "day_num": 3,
+        "table": [
+            {
+                "name": "Классный час",
+                "weak_color" : "br",
+                "time": "9:00 - 9:45",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Русский",
+                "weak_color" : "br",
+                "time": "9:50 - 11:10",
+                "cabinet": "к1 12"
+            },
+            {
+                "name": "Астрономия",
+                "weak_color" : "br",
+                "time": "11:20 - 12:40",
+                "cabinet": "к1 28"
+            },
+            {
+                "type": "repose"
+            },
+            {
+                "name": "Информатика",
+                "weak_color" : "br",
+                "time": "13:10 - 14:30",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Физкультура",
+                "weak_color" : "br",
+                "time": "14:40 - 16:00",
+                "cabinet": "к2"
+            }
+        ]
+    },
+    {
+        "name": "Пятница",
+        "day_num": 4,
+        "table": [
+            {
+                "name": "Классный час",
+                "weak_color" : "br",
+                "time": "9:00 - 9:45",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Русский",
+                "weak_color" : "br",
+                "time": "9:50 - 11:10",
+                "cabinet": "к1 12"
+            },
+            {
+                "name": "Астрономия",
+                "weak_color" : "br",
+                "time": "11:20 - 12:40",
+                "cabinet": "к1 28"
+            },
+            {
+                "type": "repose"
+            },
+            {
+                "name": "Информатика",
+                "weak_color" : "br",
+                "time": "13:10 - 14:30",
+                "cabinet": "к1 31"
+            },
+            {
+                "name": "Физкультура",
+                "weak_color" : "br",
+                "time": "14:40 - 16:00",
+                "cabinet": "к2"
+            }
+        ]
+    },
+    {
+        "name": "Суббота",
+        "day_num": 5,
+        "table": [
+            {
+                "type": "message",
+                "text": "Тут пусто"
+            }
+        ]
+    },
+    {
+        "name": "Воскресенье",
+        "day_num": 6,
+        "table": [
+            {
+                "type": "message",
+                "text": "Тут пусто"
             }
         ]
     }
