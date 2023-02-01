@@ -9,14 +9,9 @@ class Unit{
         this.__global_var[name] = data
     }
 }
-const getPageHtml = async (url) => {
-    try {
-    return await fetch(url, { method: 'GET' });
-  } catch(e) {
-      console.log(e);
-  }
-};
-console.log(getPageHtml('sourses/timeTable.txt'));
+file = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
+
+console.log(file);
 un = new Unit();
 
 un.setGlobal("open_homework_win", false)
