@@ -18,7 +18,7 @@ class Unit{
 
 un = new Unit();
 un.setGlobal("dealy", 0)
-alert('version 1.8')
+alert('version 1.9')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
@@ -27,10 +27,7 @@ var homework_win = document.querySelector(".slide_container")
 document.addEventListener("click", (event)=>{
     if (un.Global("open_homework_win") == false){
         card = document.querySelector(".card.main")
-        // if(event.y >= card.offsetTop - card.offsetHeight/2 && event.y <= card.offsetTop + card.offsetHeight/2){
-        //     open_homework()
-        // }
-        if(event.y <= window.innerHeight){
+        if(event.y >= card.offsetTop - card.offsetHeight/2 && event.y <= card.offsetTop + card.offsetHeight/2){
             open_homework()
         }
     }
@@ -83,8 +80,10 @@ function querytimeTable(data){
             subjects.append(html);
         }
     }
-    card.addEventListener('touchstart', (event) => {
-        un.slideCard = true
+    document.addEventListener('touchstart', (event) => {
+        if (event.y <= window.innerHeight/2){
+            un.slideCard = true
+        }
     })
     document.querySelector('.cards_container').append(card)
 }
@@ -128,7 +127,7 @@ document.addEventListener("touchend", function (event) {
         
         time = event.timeStamp - position['start']['time'];
         abs_part = Math.abs(position['part']);
-        if ((time < 500 && abs_part > 0.15) || (time > 90 && abs_part > 0.5)){
+        if ((time < 500 && abs_part > 0.15) || (time > 90 && abs_part > 0.4)){
             interval = setInterval(
                 () => {
                     if (Math.abs(position['part']) > 1.5){
