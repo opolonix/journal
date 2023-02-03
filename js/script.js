@@ -128,7 +128,7 @@ document.addEventListener("touchend", function (event) {
         
         time = event.timeStamp - position['start']['time'];
         abs_part = Math.abs(position['part']);
-        if ((time > 90 && time < 500 && abs_part > 0.2) || (time > 90 && abs_part > 0.5)){
+        if ((time < 500 && abs_part > 0.15) || (time > 90 && abs_part > 0.5)){
             interval = setInterval(
                 () => {
                     if (Math.abs(position['part']) > 1.5){
