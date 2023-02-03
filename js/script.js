@@ -162,7 +162,6 @@ document.addEventListener("touchend", function (event) {
                     if (abs_part > 1.5){
                         document.querySelector('div.card.main').remove()
                         clearInterval(interval)
-                        console.log(un.Global("dealy"));
                         un.setGlobal("dealy", un.Global("dealy")+1)
                         querytimeTable(un.getFile())
                     };
