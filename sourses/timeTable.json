@@ -49,23 +49,16 @@
         "table": [
             {
                 "type": "subj",
-                "name": "Классный час",
+                "name": "Ин яз",
                 "week_color" : "br",
-                "time": "9:00 - 9:45",
-                "cabinet": "к1 31"
+                "time": "9:00 - 10:20",
+                "cabinet": "к1 17"
             },
             {
                 "type": "subj",
-                "name": "Русский",
+                "name": "Физика",
                 "week_color" : "br",
-                "time": "9:50 - 11:10",
-                "cabinet": "к1 12"
-            },
-            {
-                "type": "subj",
-                "name": "Астрономия",
-                "week_color" : "br",
-                "time": "11:20 - 12:40",
+                "time": "10:30 - 11:50",
                 "cabinet": "к1 28"
             },
             {
@@ -73,17 +66,24 @@
             },
             {
                 "type": "subj",
-                "name": "Информатика",
+                "name": "Математика",
                 "week_color" : "br",
-                "time": "13:10 - 14:30",
-                "cabinet": "к1 31"
+                "time": "12:20 - 13:40",
+                "cabinet": "к1 37"
             },
             {
                 "type": "subj",
-                "name": "Физкультура",
-                "week_color" : "br",
-                "time": "14:40 - 16:00",
-                "cabinet": "к2"
+                "name": "Литература",
+                "week_color" : "b",
+                "time": "13:50 - 15:10",
+                "cabinet": "к1 12"
+            },
+            {
+                "type": "subj",
+                "name": "Родная литература",
+                "week_color" : "r",
+                "time": "13:50 - 15:10",
+                "cabinet": "к1 12"
             }
         ]
     },
@@ -93,41 +93,34 @@
         "table": [
             {
                 "type": "subj",
-                "name": "Классный час",
-                "week_color" : "br",
-                "time": "9:00 - 9:45",
-                "cabinet": "к1 31"
+                "name": "Физкультура",
+                "week_color" : "b",
+                "time": "9:00 - 10:20",
+                "cabinet": "к2"
             },
             {
                 "type": "subj",
-                "name": "Русский",
+                "name": "Математика",
                 "week_color" : "br",
-                "time": "9:50 - 11:10",
-                "cabinet": "к1 12"
-            },
-            {
-                "type": "subj",
-                "name": "Астрономия",
-                "week_color" : "br",
-                "time": "11:20 - 12:40",
-                "cabinet": "к1 28"
+                "time": "10:30 - 11:50",
+                "cabinet": "к1 37"
             },
             {
                 "type": "repose"
             },
             {
                 "type": "subj",
-                "name": "Информатика",
+                "name": "Физика",
                 "week_color" : "br",
-                "time": "13:10 - 14:30",
-                "cabinet": "к1 31"
+                "time": "12:20 - 13:40",
+                "cabinet": "к1 28"
             },
             {
                 "type": "subj",
-                "name": "Физкультура",
+                "name": "Литература",
                 "week_color" : "br",
-                "time": "14:40 - 16:00",
-                "cabinet": "к2"
+                "time": "13:50 - 15:10",
+                "cabinet": "к1 12"
             }
         ]
     },
@@ -135,43 +128,37 @@
         "name": "Четверг",
         "day_num": 3,
         "table": [
+
             {
                 "type": "subj",
-                "name": "Классный час",
-                "week_color" : "br",
-                "time": "9:00 - 9:45",
-                "cabinet": "к1 31"
+                "name": "История",
+                "week_color" : "b",
+                "time": "9:00 - 10:20",
+                "cabinet": "к1 7"
             },
             {
                 "type": "subj",
-                "name": "Русский",
+                "name": "Математика",
                 "week_color" : "br",
-                "time": "9:50 - 11:10",
-                "cabinet": "к1 12"
-            },
-            {
-                "type": "subj",
-                "name": "Астрономия",
-                "week_color" : "br",
-                "time": "11:20 - 12:40",
-                "cabinet": "к1 28"
+                "time": "10:30 - 11:50",
+                "cabinet": "к1 37"
             },
             {
                 "type": "repose"
             },
             {
                 "type": "subj",
-                "name": "Информатика",
+                "name": "ООН",
                 "week_color" : "br",
-                "time": "13:10 - 14:30",
-                "cabinet": "к1 31"
+                "time": "12:20 - 13:40",
+                "cabinet": "к1 28"
             },
             {
                 "type": "subj",
-                "name": "Физкультура",
-                "week_color" : "br",
-                "time": "14:40 - 16:00",
-                "cabinet": "к2"
+                "name": "Ин яз",
+                "week_color" : "r",
+                "time": "13:50 - 15:10",
+                "cabinet": "к1 12"
             }
         ]
     },
