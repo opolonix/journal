@@ -27,7 +27,10 @@ var homework_win = document.querySelector(".slide_container")
 document.addEventListener("click", (event)=>{
     if (un.Global("open_homework_win") == false){
         card = document.querySelector(".card.main")
-        if(event.y >= card.offsetTop - card.offsetHeight/2 && event.y <= card.offsetTop + card.offsetHeight/2){
+        // if(event.y >= card.offsetTop - card.offsetHeight/2 && event.y <= card.offsetTop + card.offsetHeight/2){
+        //     open_homework()
+        // }
+        if(event.y <= window.innerHeight){
             open_homework()
         }
     }
