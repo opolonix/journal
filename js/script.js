@@ -82,6 +82,11 @@ function querytimeTable(data){
             html = new DOMParser().parseFromString(html, "text/html").querySelector('div.break');
             subjects.append(html);
         }
+        if (i['type'] == 'message'){
+            html = `<div class="message">${i['text']}</div>`;
+            html = new DOMParser().parseFromString(html, "text/html").querySelector('div.message');
+            subjects.append(html);
+        }
     }
     document.addEventListener('touchstart', (event) => {
         parent_class = event.target.offsetParent.classList[0]
