@@ -116,7 +116,7 @@ document.addEventListener("touchend", function (event) {
                 translate_card.style.transform = `translateX(0px) rotate(0deg)`
                 translate_card.style.opacity = `1`
             },
-            100
+            0
         )
         
 
