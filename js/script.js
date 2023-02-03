@@ -2,6 +2,7 @@ class Unit{
     constructor(){
         this._global_var = {}
         var slideCard = false
+        this._file = null
     }
     Global(name){
         return this._global_var[name]
@@ -9,11 +10,15 @@ class Unit{
     setGlobal(name, data){
         this._global_var[name] = data
     }
-    setTimeTable(file){querytimeTable(file, new Date)}
+    setTimeTable(file){querytimeTable(file)}
+    setFile(fil){this._file = fil}
+    getFile(){return this._file}
+
 }
 
 un = new Unit();
-alert('version 1.2')
+un.setGlobal("dealy", 0)
+alert('version 1.4')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
@@ -37,8 +42,13 @@ document.querySelector('.navigation_bar .btns button').addEventListener("click",
 function open_homework(){homework_win.classList.remove("close"); un.setGlobal("open_homework_win", true)}
 function close_homework(){homework_win.classList.add("close"); un.setGlobal("open_homework_win", false)}
 
-function querytimeTable(data, time){
+function querytimeTable(data){
+    time = new Date
+    time.setDate(time.getDate() + un.Global("dealy"))
+    un.setFile(data)
     day_num = time.getDay()-1
+    console.log(day_num);
+    if (day_num == -1){day_num = 6}
     day_name = data[day_num]['name']
     day_date = formatDate(time)
     week = Math.round((time - new Date(time.getFullYear(), time.getMonth(), 0).getTime()) / (1000 * 60 * 60 * 24 * 7));
@@ -119,7 +129,12 @@ document.addEventListener("touchend", function (event) {
         if ((time > 90 && time < 500 && abs_part > 0.4) || (time > 90 && abs_part > 0.5)){
             interval = setInterval(
                 () => {
-                    if (abs_part > 1.5){clearInterval(interval)};
+                    if (abs_part > 1.5){
+                        document.querySelector('div.card.main').remove()
+                        clearInterval(interval)
+                        un.setGlobal("dealy", un.Global("dealy")-1)
+                        querytimeTable(un.getFile())
+                    };
                     abs_part += 0.07;
                     position['part'] += 0.07;
                     translate_card.style.transition = `0ms`;
@@ -127,7 +142,39 @@ document.addEventListener("touchend", function (event) {
                     translate_card.style.opacity = 1/Math.abs(abs_part)*30/100;
                 },
                 10
-            )
+            );
+        }
+        else{
+            translate_card.style.transform = `translateX(0px) rotate(0deg)`
+            translate_card.style.opacity = `1`
+            translate_card.style.transition = `200ms`
+        };
+    }
+    else{
+        un.slideCard = false;
+        translate_card = document.querySelector('div.card.main > div.card_wrapper');
+        translate_card.style['transition-timing-function'] = `cubic-bezier(0, 0, 1, 1)`;
+        
+        time = event.timeStamp - position['start']['time'];
+        abs_part = Math.abs(position['part']);
+        if ((time > 90 && time < 500 && abs_part > 0.4) || (time > 90 && abs_part > 0.5)){
+            interval = setInterval(
+                () => {
+                    if (abs_part > 1.5){
+                        document.querySelector('div.card.main').remove()
+                        clearInterval(interval)
+                        console.log(un.Global("dealy"));
+                        un.setGlobal("dealy", un.Global("dealy")+1)
+                        querytimeTable(un.getFile())
+                    };
+                    abs_part += 0.07;
+                    position['part'] += 0.07;
+                    translate_card.style.transition = `0ms`;
+                    translate_card.style.transform = `translateX(${position['part']*window.innerWidth}px) rotate(${position['part']*7}deg)`;
+                    translate_card.style.opacity = 1/Math.abs(abs_part)*30/100;
+                },
+                10
+            );
         }
         else{
             translate_card.style.transform = `translateX(0px) rotate(0deg)`
