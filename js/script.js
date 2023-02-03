@@ -18,7 +18,7 @@ class Unit{
 
 un = new Unit();
 un.setGlobal("dealy", 0)
-alert('version 1.6')
+alert('version 1.7')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
@@ -128,7 +128,7 @@ document.addEventListener("touchend", function (event) {
         
         time = event.timeStamp - position['start']['time'];
         abs_part = Math.abs(position['part']);
-        if ((time > 90 && time < 500 && abs_part > 0.4) || (time > 90 && abs_part > 0.5)){
+        if ((time > 90 && time < 500 && abs_part > 0.2) || (time > 90 && abs_part > 0.5)){
             interval = setInterval(
                 () => {
                     if (Math.abs(position['part']) > 1.5){
