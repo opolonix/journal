@@ -18,7 +18,7 @@ class Unit{
 
 un = new Unit();
 un.setGlobal("dealy", 0)
-alert('version 1.5')
+alert('version 1.6')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
