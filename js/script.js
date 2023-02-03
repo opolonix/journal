@@ -18,7 +18,7 @@ class Unit{
 
 un = new Unit();
 un.setGlobal("dealy", 0)
-alert('version 1.10')
+alert('version 1.11')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
@@ -50,9 +50,10 @@ function querytimeTable(data){
     if (day_num == -1){day_num = 6}
     day_name = data[day_num]['name']
     day_date = formatDate(time)
-    week = Math.round((time - new Date(time.getFullYear(), time.getMonth(), 0).getTime()) / (1000 * 60 * 60 * 24 * 7));
-    if(week % 2){week = 'red'}
-    else{week = 'blue'}
+    time.setDate(time.getDate()-1)
+    week = Math.round((time.getTime()) / (7*24*60*60*1000));
+    if(week % 2){week = 'blue'}
+    else{week = 'red'}
 
     card = `
     <div class="card main" style="transform: translate(-50%, -50%) scale(0.95);">
