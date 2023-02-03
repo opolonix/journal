@@ -177,3 +177,8 @@ footer{
     position: absolute;
     transform: translateX(50%);
 }
+.subjects > .message{
+    font-size: 16px;
+    margin: 10px;
+    color: #333;
+}
