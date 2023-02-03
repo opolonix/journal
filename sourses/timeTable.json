@@ -195,21 +195,11 @@
     {
         "name": "Суббота",
         "day_num": 5,
-        "table": [
-            {
-                "type": "message",
-                "text": "Тут пусто"
-            }
-        ]
+        "table": []
     },
     {
         "name": "Воскресенье",
         "day_num": 6,
-        "table": [
-            {
-                "type": "message",
-                "text": "Тут пусто"
-            }
-        ]
+        "table": []
     }
 ]
