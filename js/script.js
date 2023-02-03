@@ -47,7 +47,6 @@ function querytimeTable(data){
     time.setDate(time.getDate() + un.Global("dealy"))
     un.setFile(data)
     day_num = time.getDay()-1
-    console.log(day_num);
     if (day_num == -1){day_num = 6}
     day_name = data[day_num]['name']
     day_date = formatDate(time)
