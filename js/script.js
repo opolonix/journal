@@ -13,7 +13,7 @@ class Unit{
 }
 
 un = new Unit();
-alert('version 1.1')
+alert('version 1.2')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
@@ -89,57 +89,52 @@ var position = {
     "start":{},
     "move":{},
     "part": 0
-}
+};
 function card_slide_state(part){
-    translate_card = document.querySelector('div.card.main > div.card_wrapper')
-    translate_card.style.transition = `0ms`
-    translate_card.style.transform = `translateX(${part*window.innerWidth}px) rotate(${part*7}deg)`
-    translate_card.style.opacity = 1/Math.abs(part)*30/100
-    position['part'] = part
-}
+    translate_card = document.querySelector('div.card.main > div.card_wrapper');
+    translate_card.style.transition = `0ms`;
+    translate_card.style.transform = `translateX(${part*window.innerWidth}px) rotate(${part*7}deg)`;
+    translate_card.style.opacity = 1/Math.abs(part)*30/100;
+    position['part'] = part;
+};
 document.addEventListener("touchstart", function (event) {
-    position['start']['x'] = event.touches[0].clientX
-    position['start']['y'] = event.touches[0].clientY
-    position['start']['time'] = event.timeStamp
+    position['start']['x'] = event.touches[0].clientX;
+    position['start']['y'] = event.touches[0].clientY;
+    position['start']['time'] = event.timeStamp;
 });
 document.addEventListener("touchmove", function (event) {
-    position['move']['x'] = event.touches[0].clientX,
-    position['move']['y'] = event.touches[0].clientY
-    part = (position['move']['x']-position['start']['x'])/(window.innerWidth)
-    if (un.slideCard == true){card_slide_state(part)}
+    position['move']['x'] = event.touches[0].clientX;
+    position['move']['y'] = event.touches[0].clientY;
+    part = (position['move']['x']-position['start']['x'])/(window.innerWidth);
+    if (un.slideCard == true){card_slide_state(part)};
 });
 document.addEventListener("touchend", function (event) {
     if (un.slideCard == true){
-        un.slideCard = false
-        translate_card = document.querySelector('div.card.main > div.card_wrapper')
-        translate_card.style['transition-timing-function'] = `cubic-bezier(0, 0, 1, 1)`
+        un.slideCard = false;
+        translate_card = document.querySelector('div.card.main > div.card_wrapper');
+        translate_card.style['transition-timing-function'] = `cubic-bezier(0, 0, 1, 1)`;
         
-        time = event.timeStamp - position['start']['time']
-        console.log(time, position['part']);
-        abs_part = Math.abs(position['part'])
+        time = event.timeStamp - position['start']['time'];
+        abs_part = Math.abs(position['part']);
         if ((time > 90 && time < 500 && abs_part > 0.4) || (time > 90 && abs_part > 0.5)){
             interval = setInterval(
                 () => {
-                    if (abs_part > 1.5){clearInterval(interval)}
+                    if (abs_part > 1.5){clearInterval(interval)};
                     abs_part += 0.07;
-                    translate_card.style.transition = `0ms`
-                    translate_card.style.transform = `translateX(${abs_part*window.innerWidth}px) rotate(${abs_part*7}deg)`
-                    translate_card.style.opacity = 1/Math.abs(abs_part)*30/100
+                    position['part'] += 0.07;
+                    translate_card.style.transition = `0ms`;
+                    translate_card.style.transform = `translateX(${position['part']*window.innerWidth}px) rotate(${position['part']*7}deg)`;
+                    translate_card.style.opacity = 1/Math.abs(abs_part)*30/100;
                 },
                 10
             )
-            // while (abs_part < 1.5){
-            //     abs_part += 0.07;
-            // }
         }
         else{
             translate_card.style.transform = `translateX(0px) rotate(0deg)`
             translate_card.style.opacity = `1`
             translate_card.style.transition = `200ms`
-        }
-
+        };
     }
-    
 });
 
 // setTimeout(
