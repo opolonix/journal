@@ -41,23 +41,33 @@ function querytimeTable(data, time){
     day_name = data[day_num]['name']
     day_date = formatDate(time)
     week = Math.round((time - new Date(time.getFullYear(), time.getMonth(), 0).getTime()) / (1000 * 60 * 60 * 24 * 7));
-    if(week % 2){week = 'blue'}
-    else{week = 'red'}
-    // console.log(day_name, day_date, week);
+    if(week % 2){week = 'red'}
+    else{week = 'blue'}
 
-    card = document.createElement('div')
-    card.classList.add('card')
-    card.classList.add('main')
+    card = `<div class="card main">
+        <div class="week_color ${week}"></div>
+        <div class="headers">
+            <p class="name">${day_name}</p>
+            <p class="card_date">${day_date}</p>
+        </div>
+        <div class="subjects"></div>
+    </div>`
+    card = new DOMParser().parseFromString(card, "text/html").querySelector('div.card.main')
 
-    week_color = document.createElement('div')
-    week_color.classList.add('weak_color')
-    week_color.classList.add(week)
-    card.append(week_color)
-
-    cards_container = document.querySelector('.cards_container')
-    //cards_container.append(card)
-
-    console.log(card);
+    subjects = card.querySelector('.subjects')
+    for (let i of data[day_num]['table']){
+        if (i['type'] == 'subj'){
+            html = `<div class="subject"><p class="name">${i['name']}</p><p class="fromto">${i['time']}</p><p class="adress">${i['cabinet']}</p></div>`;
+            html = new DOMParser().parseFromString(html, "text/html").querySelector('div.subject');
+            subjects.append(html);
+        }
+        if (i['type'] == 'repose'){
+            html = `<div class="break">Большая перемена</div>`;
+            html = new DOMParser().parseFromString(html, "text/html").querySelector('div.break');
+            subjects.append(html);
+        }
+    }
+    document.querySelector('.cards_container').append(card)
 }
 
 function formatDate(date) {
@@ -67,7 +77,25 @@ function formatDate(date) {
     if (mm < 10) mm = '0' + mm;
     var yy = date.getFullYear()
     return dd + '.' + mm + '.' + yy;
-  }
+}
+function card_slide_state(part){
+
+}
+var position = {
+    "start":{},
+    "move":{}
+}
+document.addEventListener("touchstart", function (event) {
+    position['start']['x'] = event.touches[0].clientX
+    position['start']['y'] = event.touches[0].clientY
+});
+document.addEventListener("touchmove", function (event) {
+    position['move']['x'] = event.touches[0].clientX,
+    position['move']['y'] = event.touches[0].clientY
+    part = (position['move']['x']-position['start']['x'])/(window.innerWidth)
+    console.log(part*100);
+}
+);
 // var lastY = 1;
 // document.addEventListener("touchmove", function (event) 
 //     {
