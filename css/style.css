@@ -27,6 +27,7 @@ body{
     padding: 10px 20px 20px;
     background-color: #f1f1f1;
     border-radius: 20px;
+    box-shadow: 0 0 20px 0px;
 }
 .headers > .name{
     font-size: 28px;
