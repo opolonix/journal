@@ -88,7 +88,7 @@ function formatDate(date) {
 function card_slide_state(part){
     translate_card = document.querySelector('div.card.main > div.card_wrapper')
     translate_card.style.transition = `0ms`
-    translate_card.style.transform = `translateX(${part*window.innerWidth}px) rotate(${part*10}deg)`
+    translate_card.style.transform = `translateX(${part*window.innerWidth}px) rotate(${part*7}deg)`
 }
 var position = {
     "start":{},
