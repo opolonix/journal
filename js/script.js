@@ -1,6 +1,7 @@
 class Unit{
     constructor(){
         this._global_var = {}
+        var slideCard = false
     }
     Global(name){
         return this._global_var[name]
@@ -44,13 +45,16 @@ function querytimeTable(data, time){
     if(week % 2){week = 'red'}
     else{week = 'blue'}
 
-    card = `<div class="card main">
-        <div class="week_color ${week}"></div>
-        <div class="headers">
-            <p class="name">${day_name}</p>
-            <p class="card_date">${day_date}</p>
+    card = `
+    <div class="card main">
+        <div class="card_wrapper">
+            <div class="week_color ${week}"></div>
+            <div class="headers">
+                <p class="name">${day_name}</p>
+                <p class="card_date">${day_date}</p>
+            </div>
+            <div class="subjects"></div>
         </div>
-        <div class="subjects"></div>
     </div>`
     card = new DOMParser().parseFromString(card, "text/html").querySelector('div.card.main')
 
@@ -67,6 +71,9 @@ function querytimeTable(data, time){
             subjects.append(html);
         }
     }
+    card.addEventListener('touchstart', (event) => {
+        un.slideCard = true
+    })
     document.querySelector('.cards_container').append(card)
 }
 
@@ -79,7 +86,9 @@ function formatDate(date) {
     return dd + '.' + mm + '.' + yy;
 }
 function card_slide_state(part){
-
+    translate_card = document.querySelector('div.card.main > div.card_wrapper')
+    translate_card.style.transition = `0ms`
+    translate_card.style.transform = `translateX(${part*window.innerWidth}px) rotate(${part*10}deg)`
 }
 var position = {
     "start":{},
@@ -93,9 +102,33 @@ document.addEventListener("touchmove", function (event) {
     position['move']['x'] = event.touches[0].clientX,
     position['move']['y'] = event.touches[0].clientY
     part = (position['move']['x']-position['start']['x'])/(window.innerWidth)
-    console.log(part*100);
-}
-);
+    if (un.slideCard == true){card_slide_state(part)}
+});
+document.addEventListener("touchend", function (event) {
+    if (un.slideCard == true){
+        un.slideCard = false
+        translate_card = document.querySelector('div.card.main > div.card_wrapper')
+        translate_card.style.transition = `200ms`
+        setTimeout(
+            () => {translate_card.style.transform = `translateX(0px) rotate(0deg)`},
+            100
+        )
+        
+
+    }
+    
+});
+
+// setTimeout(
+//     () => {
+//         main_card = document.querySelector('.card.main')
+//         console.log(main_card);
+//         main_card.addEventListener('touchstart', (event) => {
+//             console.log();
+//         })
+//     },
+//     100
+// )
 // var lastY = 1;
 // document.addEventListener("touchmove", function (event) 
 //     {
@@ -107,7 +140,6 @@ document.addEventListener("touchmove", function (event) {
 
 
 // var x, y = 0
-// main_card = document.querySelector(".card.main")
 // main_card = main_card.getBoundingClientRect()
 // document.addEventListener("touchstart", function (event) 
 //     {   
@@ -115,4 +147,3 @@ document.addEventListener("touchmove", function (event) {
 //     },
 //     {passive: false}
 // );
-
