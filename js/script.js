@@ -89,6 +89,7 @@ function card_slide_state(part){
     translate_card = document.querySelector('div.card.main > div.card_wrapper')
     translate_card.style.transition = `0ms`
     translate_card.style.transform = `translateX(${part*window.innerWidth}px) rotate(${part*7}deg)`
+    translate_card.style.opacity = 1/Math.abs(part)*30/100
 }
 var position = {
     "start":{},
@@ -111,7 +112,10 @@ document.addEventListener("touchend", function (event) {
         translate_card.style.transition = `200ms`
         translate_card.style['transition-timing-function'] = `cubic-bezier(0, 0, 1, 1)`
         setTimeout(
-            () => {translate_card.style.transform = `translateX(0px) rotate(0deg)`},
+            () => {
+                translate_card.style.transform = `translateX(0px) rotate(0deg)`
+                translate_card.style.opacity = `1`
+            },
             100
         )
         
