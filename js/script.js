@@ -18,7 +18,7 @@ class Unit{
 
 un = new Unit();
 un.setGlobal("dealy", 0)
-alert('version 1.11')
+alert('version 1.12')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
@@ -133,7 +133,7 @@ document.addEventListener("touchend", function (event) {
         
         time = event.timeStamp - position['start']['time'];
         abs_part = Math.abs(position['part']);
-        if ((time < 500 && abs_part > 0.15) || (time > 90 && abs_part > 0.4)){
+        if ((time < 300 && abs_part > 0.15) || (time > 90 && abs_part > 0.4)){
             interval = setInterval(
                 () => {
                     if (Math.abs(position['part']) > 1.5){
@@ -147,12 +147,12 @@ document.addEventListener("touchend", function (event) {
                         };
                         querytimeTable(un.getFile())
                     };
-                    position['part'] = (Math.abs(position['part']) + 0.07) * Math.sign(position['part']);
+                    position['part'] = (Math.abs(position['part']) + 0.03) * Math.sign(position['part']);
                     translate_card.style.transition = `0ms`;
                     translate_card.style.transform = `translateX(${position['part']*window.innerWidth}px) rotate(${position['part']*7}deg)`;
                     translate_card.style.opacity = 1/Math.abs(position['part'])*30/100;
                 },
-                10
+                5
             );
         }
         else{
