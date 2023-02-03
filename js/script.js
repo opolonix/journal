@@ -13,7 +13,7 @@ class Unit{
 }
 
 un = new Unit();
-
+alert('version 1.1')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
@@ -85,19 +85,22 @@ function formatDate(date) {
     var yy = date.getFullYear()
     return dd + '.' + mm + '.' + yy;
 }
+var position = {
+    "start":{},
+    "move":{},
+    "part": 0
+}
 function card_slide_state(part){
     translate_card = document.querySelector('div.card.main > div.card_wrapper')
     translate_card.style.transition = `0ms`
     translate_card.style.transform = `translateX(${part*window.innerWidth}px) rotate(${part*7}deg)`
     translate_card.style.opacity = 1/Math.abs(part)*30/100
-}
-var position = {
-    "start":{},
-    "move":{}
+    position['part'] = part
 }
 document.addEventListener("touchstart", function (event) {
     position['start']['x'] = event.touches[0].clientX
     position['start']['y'] = event.touches[0].clientY
+    position['start']['time'] = event.timeStamp
 });
 document.addEventListener("touchmove", function (event) {
     position['move']['x'] = event.touches[0].clientX,
@@ -109,16 +112,31 @@ document.addEventListener("touchend", function (event) {
     if (un.slideCard == true){
         un.slideCard = false
         translate_card = document.querySelector('div.card.main > div.card_wrapper')
-        translate_card.style.transition = `200ms`
         translate_card.style['transition-timing-function'] = `cubic-bezier(0, 0, 1, 1)`
-        setTimeout(
-            () => {
-                translate_card.style.transform = `translateX(0px) rotate(0deg)`
-                translate_card.style.opacity = `1`
-            },
-            0
-        )
         
+        time = event.timeStamp - position['start']['time']
+        console.log(time, position['part']);
+        abs_part = Math.abs(position['part'])
+        if ((time > 90 && time < 500 && abs_part > 0.4) || (time > 90 && abs_part > 0.5)){
+            interval = setInterval(
+                () => {
+                    if (abs_part > 1.5){clearInterval(interval)}
+                    abs_part += 0.07;
+                    translate_card.style.transition = `0ms`
+                    translate_card.style.transform = `translateX(${abs_part*window.innerWidth}px) rotate(${abs_part*7}deg)`
+                    translate_card.style.opacity = 1/Math.abs(abs_part)*30/100
+                },
+                10
+            )
+            // while (abs_part < 1.5){
+            //     abs_part += 0.07;
+            // }
+        }
+        else{
+            translate_card.style.transform = `translateX(0px) rotate(0deg)`
+            translate_card.style.opacity = `1`
+            translate_card.style.transition = `200ms`
+        }
 
     }
     
