@@ -128,48 +128,16 @@ document.addEventListener("touchend", function (event) {
         if ((time > 90 && time < 500 && abs_part > 0.4) || (time > 90 && abs_part > 0.5)){
             interval = setInterval(
                 () => {
-                    if (abs_part > 1.5){
+                    if (Math.abs(position['part']) > 1.5){
                         document.querySelector('div.card.main').remove()
                         clearInterval(interval)
-                        un.setGlobal("dealy", un.Global("dealy")-1)
+                        un.setGlobal("dealy", un.Global("dealy") + (Math.sign(position['part'])*-1))
                         querytimeTable(un.getFile())
                     };
-                    abs_part += 0.07;
-                    position['part'] += 0.07;
+                    position['part'] = (Math.abs(position['part']) + 0.07) * Math.sign(position['part']);
                     translate_card.style.transition = `0ms`;
                     translate_card.style.transform = `translateX(${position['part']*window.innerWidth}px) rotate(${position['part']*7}deg)`;
-                    translate_card.style.opacity = 1/Math.abs(abs_part)*30/100;
-                },
-                10
-            );
-        }
-        else{
-            translate_card.style.transform = `translateX(0px) rotate(0deg)`
-            translate_card.style.opacity = `1`
-            translate_card.style.transition = `200ms`
-        };
-    }
-    else{
-        un.slideCard = false;
-        translate_card = document.querySelector('div.card.main > div.card_wrapper');
-        translate_card.style['transition-timing-function'] = `cubic-bezier(0, 0, 1, 1)`;
-        
-        time = event.timeStamp - position['start']['time'];
-        abs_part = Math.abs(position['part']);
-        if ((time > 90 && time < 500 && abs_part > 0.2) || (time > 90 && abs_part > 0.5)){
-            interval = setInterval(
-                () => {
-                    if (abs_part > 1.5){
-                        document.querySelector('div.card.main').remove()
-                        clearInterval(interval)
-                        un.setGlobal("dealy", un.Global("dealy")+1)
-                        querytimeTable(un.getFile())
-                    };
-                    abs_part += 0.07;
-                    position['part'] += 0.07;
-                    translate_card.style.transition = `0ms`;
-                    translate_card.style.transform = `translateX(${position['part']*window.innerWidth}px) rotate(${position['part']*7}deg)`;
-                    translate_card.style.opacity = 1/Math.abs(abs_part)*30/100;
+                    translate_card.style.opacity = 1/Math.abs(position['part'])*30/100;
                 },
                 10
             );
