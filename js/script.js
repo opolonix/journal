@@ -18,7 +18,7 @@ class Unit{
 
 un = new Unit();
 un.setGlobal("dealy", 0)
-alert('version 1.9')
+alert('version 1.10')
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
@@ -55,7 +55,7 @@ function querytimeTable(data){
     else{week = 'blue'}
 
     card = `
-    <div class="card main">
+    <div class="card main" style="transform: translate(-50%, -50%) scale(0.95);">
         <div class="card_wrapper">
             <div class="week_color ${week}"></div>
             <div class="headers">
@@ -81,11 +81,16 @@ function querytimeTable(data){
         }
     }
     document.addEventListener('touchstart', (event) => {
-        if (event.y <= window.innerHeight/2){
+        parent_class = event.target.offsetParent.classList[0]
+        if ((Math.abs(event.touches[0].clientY-window.innerHeight) <= window.innerHeight/2) || (parent_class == 'card_wrapper' || parent_class == 'card')){
             un.slideCard = true
         }
     })
     document.querySelector('.cards_container').append(card)
+    setTimeout(
+        () => {card.style = "transform: translate(-50%, -50%) scale(1.0); transition: 100ms;"},
+        10
+    )
 }
 
 function formatDate(date) {
@@ -134,6 +139,11 @@ document.addEventListener("touchend", function (event) {
                         document.querySelector('div.card.main').remove()
                         clearInterval(interval)
                         un.setGlobal("dealy", un.Global("dealy") + (Math.sign(position['part'])*-1))
+                        position = {
+                            "start":{},
+                            "move":{},
+                            "part": 0
+                        };
                         querytimeTable(un.getFile())
                     };
                     position['part'] = (Math.abs(position['part']) + 0.07) * Math.sign(position['part']);
