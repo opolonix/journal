@@ -42,7 +42,6 @@ function open_homework(){homework_win.classList.remove("close"); un.setGlobal("o
 function close_homework(){homework_win.classList.add("close"); un.setGlobal("open_homework_win", false)}
 
 function querytimeTable(data){
-    console.log(data);
     time = new Date
     time.setDate(time.getDate() + un.Global("dealy"))
     un.setFile(data)
