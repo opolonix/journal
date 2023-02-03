@@ -43,6 +43,7 @@ function open_homework(){homework_win.classList.remove("close"); un.setGlobal("o
 function close_homework(){homework_win.classList.add("close"); un.setGlobal("open_homework_win", false)}
 
 function querytimeTable(data){
+    console.log(data);
     time = new Date
     time.setDate(time.getDate() + un.Global("dealy"))
     un.setFile(data)
@@ -71,9 +72,11 @@ function querytimeTable(data){
     subjects = card.querySelector('.subjects')
     for (let i of data[day_num]['table']){
         if (i['type'] == 'subj'){
-            html = `<div class="subject"><p class="name">${i['name']}</p><p class="fromto">${i['time']}</p><p class="adress">${i['cabinet']}</p></div>`;
-            html = new DOMParser().parseFromString(html, "text/html").querySelector('div.subject');
-            subjects.append(html);
+            if (i['week_color'].indexOf(week[0]) != -1) {
+                html = `<div class="subject"><p class="name">${i['name']}</p><p class="fromto">${i['time']}</p><p class="adress">${i['cabinet']}</p></div>`;
+                html = new DOMParser().parseFromString(html, "text/html").querySelector('div.subject');
+                subjects.append(html);
+            }
         }
         if (i['type'] == 'repose'){
             html = `<div class="break">Большая перемена</div>`;
@@ -162,32 +165,3 @@ document.addEventListener("touchend", function (event) {
         };
     }
 });
-
-// setTimeout(
-//     () => {
-//         main_card = document.querySelector('.card.main')
-//         console.log(main_card);
-//         main_card.addEventListener('touchstart', (event) => {
-//             console.log();
-//         })
-//     },
-//     100
-// )
-// var lastY = 1;
-// document.addEventListener("touchmove", function (event) 
-//     {
-//         if((lastY-event.touches[0].clientY) < 0 && event.cancelable){event.preventDefault(); event.stopPropagation();};
-//         lastY = event.touches[0].clientY;
-//     },
-//     {passive: false}
-// );
-
-
-// var x, y = 0
-// main_card = main_card.getBoundingClientRect()
-// document.addEventListener("touchstart", function (event) 
-//     {   
-//         console.log(event.touches[0].clientX, event.touches[0].clientY);
-//     },
-//     {passive: false}
-// );
