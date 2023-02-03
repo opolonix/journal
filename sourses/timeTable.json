@@ -181,41 +181,27 @@
         "table": [
             {
                 "type": "subj",
-                "name": "Классный час",
+                "name": "Информатика",
                 "week_color" : "br",
-                "time": "9:00 - 9:45",
+                "time": "9:00 - 10:20",
                 "cabinet": "к1 31"
             },
             {
                 "type": "subj",
-                "name": "Русский",
+                "name": "ОБЖ",
                 "week_color" : "br",
-                "time": "9:50 - 11:10",
-                "cabinet": "к1 12"
-            },
-            {
-                "type": "subj",
-                "name": "Астрономия",
-                "week_color" : "br",
-                "time": "11:20 - 12:40",
-                "cabinet": "к1 28"
+                "time": "10:30 - 11:50",
+                "cabinet": "к1 13"
             },
             {
                 "type": "repose"
             },
             {
                 "type": "subj",
-                "name": "Информатика",
+                "name": "Родная литература",
                 "week_color" : "br",
-                "time": "13:10 - 14:30",
-                "cabinet": "к1 31"
-            },
-            {
-                "type": "subj",
-                "name": "Физкультура",
-                "week_color" : "br",
-                "time": "14:40 - 16:00",
-                "cabinet": "к2"
+                "time": "12:20 - 13:40",
+                "cabinet": "к1 12"
             }
         ]
     },
