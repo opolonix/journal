@@ -89,9 +89,10 @@ function querytimeTable(data){
     }
     document.addEventListener('touchstart', (event) => {
         parent_class = event.target.offsetParent.classList[0]
+        if (event.touches.length == 1){
         if ((Math.abs(event.touches[0].clientY-window.innerHeight) <= window.innerHeight/2) || (parent_class == 'card_wrapper' || parent_class == 'card')){
             un.slideCard = true
-        }
+        }}
     })
     document.querySelector('.cards_container').append(card)
     setTimeout(
