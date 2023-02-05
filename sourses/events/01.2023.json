@@ -1,0 +1,18 @@
+[
+    {
+        "day": 5,
+        "type": "homework",
+        "tasks": [
+            {
+                "name": "Русский",
+                "task": "Упр 123\nПодготовить сочинение\nБудет КР",
+                "priority": false
+            },
+            {
+                "name": "Математика",
+                "task": "Номер 3.4",
+                "priority": false
+            }
+        ]
+    }
+]
