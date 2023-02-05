@@ -14,5 +14,16 @@
                 "priority": false
             }
         ]
+    },
+    {
+        "day": 6,
+        "type": "homework",
+        "tasks": [
+            {
+                "name": "Астрономия",
+                "task": "Конспект!!!",
+                "priority": false
+            }
+        ]
     }
 ]
