@@ -16,30 +16,43 @@ class Unit{
 
 }
 
+
+// dat = new Date
+// setInterval(
+//     () => {
+//         second = dat.getSeconds() + 1
+//         dat.setSeconds(second)
+//         if (second % 60 == 0){
+//             console.log(dat);
+//         }
+//     },
+//     1000
+// )
+
 un = new Unit();
 un.setGlobal("dealy", 0)
 const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.json', {method: 'GET'});
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
 
-var homework_win = document.querySelector(".slide_container")
-document.addEventListener("click", (event)=>{
-    if (un.Global("open_homework_win") == false){
-        card = document.querySelector(".card.main")
-        if(event.y >= card.offsetTop - card.offsetHeight/2 && event.y <= card.offsetTop + card.offsetHeight/2){
-            open_homework()
-        }
-    }
-    else{close_homework()}
-})
-document.querySelector('.navigation_bar .btns button').addEventListener("click", (event)=>{
-    if (un.Global("open_homework_win") == false){
+// var homework_win = document.querySelector(".slide_container")
+// document.addEventListener("click", (event)=>{
+//     if (un.Global("open_homework_win") == false){
+//         card = document.querySelector(".card.main")
+//         if(event.y >= card.offsetTop - card.offsetHeight/2 && event.y <= card.offsetTop + card.offsetHeight/2){
+//             open_homework()
+//         }
+//     }
+//     else{close_homework()}
+// })
+// document.querySelector('.navigation_bar .btns button').addEventListener("click", (event)=>{
+//     if (un.Global("open_homework_win") == false){
         
-    }
-})
+//     }
+// })
 
-function open_homework(){homework_win.classList.remove("close"); un.setGlobal("open_homework_win", true)}
-function close_homework(){homework_win.classList.add("close"); un.setGlobal("open_homework_win", false)}
+// function open_homework(){homework_win.classList.remove("close"); un.setGlobal("open_homework_win", true)}
+// function close_homework(){homework_win.classList.add("close"); un.setGlobal("open_homework_win", false)}
 
 function querytimeTable(data){
     time = new Date
