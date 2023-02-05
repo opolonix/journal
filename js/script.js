@@ -35,6 +35,17 @@ const response = fetch('https://opolonix.github.io/journal/sourses/timeTable.jso
 response.then(resp => {return resp.json()}).then(resBody => {un.setTimeTable(resBody)})
 
 
+function get_events(date){
+    var homework
+    fetch('https://opolonix.github.io/journal/sourses/homework.json', {method: 'GET'}).then(resp => {return resp.json()}).then(resp => {homework = resp})
+
+    setTimeout(
+        () => {
+            console.log(homework);
+        }, 1000
+    ) 
+}
+get_events('date')
 // var homework_win = document.querySelector(".slide_container")
 // document.addEventListener("click", (event)=>{
 //     if (un.Global("open_homework_win") == false){
