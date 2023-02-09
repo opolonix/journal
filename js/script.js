@@ -42,7 +42,7 @@ function get_events(date){
     setTimeout(
         () => {
             console.log(homework);
-        }, 1000
+        }, 10000
     ) 
 }
 get_events('date')
