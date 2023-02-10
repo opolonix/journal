@@ -176,13 +176,13 @@
             {
                 "type": "subj",
                 "name": "ОБЖ",
-                "week_color" : "b",
+                "week_color" : "r",
                 "time": "10:30 - 11:50",
                 "cabinet": "к1 13"
             },{
                 "type": "subj",
                 "name": "История",
-                "week_color" : "r",
+                "week_color" : "b",
                 "time": "10:30 - 11:50",
                 "cabinet": "к1 7"
             },
